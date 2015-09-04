@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Poll-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="PollVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -15,9 +16,56 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siL-FY-1sX" customClass="ZLSwipeableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="538" id="yFc-Mt-sNh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yFc-Mt-sNh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="yFc-Mt-sNh"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="siL-FY-1sX" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="5yG-HI-CPk"/>
+                            <constraint firstItem="siL-FY-1sX" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="BOb-5v-YNB"/>
+                            <constraint firstItem="siL-FY-1sX" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="fnh-BA-GZq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="siL-FY-1sX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5yG-HI-CPk"/>
+                                <exclude reference="BOb-5v-YNB"/>
+                                <exclude reference="fnh-BA-GZq"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="siL-FY-1sX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5yG-HI-CPk"/>
+                                <include reference="BOb-5v-YNB"/>
+                                <include reference="fnh-BA-GZq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Poll" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="swipeableView" destination="siL-FY-1sX" id="esy-HC-RCE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

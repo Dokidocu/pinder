@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZLSwipeableView.h"
+#import "CardView.h"
 
-@interface PollVC : UIViewController
+@interface PollVC : UIViewController<ZLSwipeableViewDataSource, ZLSwipeableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet ZLSwipeableView *swipeableView;
+
+@property (nonatomic, strong) NSArray *colors;
+@property (nonatomic) NSUInteger colorIndex;
+
+@property (nonatomic) BOOL loadCardFromXib;
 @end

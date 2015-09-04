@@ -15,6 +15,9 @@
 		660D48B61B99CF2400802B05 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660D48B41B99CF2400802B05 /* LaunchScreen.xib */; };
 		660D48C21B99CF2400802B05 /* PinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48C11B99CF2400802B05 /* PinderTests.m */; };
 		660D48D21B99DAE000802B05 /* PollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48D11B99DAE000802B05 /* PollVC.m */; };
+		660D48D51B99DBB400802B05 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660D48D41B99DBB400802B05 /* CardView.xib */; };
+		660D48D91B99DCA900802B05 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48D81B99DCA900802B05 /* CardView.m */; };
+		660D48DC1B99E01500802B05 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48DB1B99E01500802B05 /* UIColor+FlatColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,11 @@
 		660D48C11B99CF2400802B05 /* PinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinderTests.m; sourceTree = "<group>"; };
 		660D48D01B99DAE000802B05 /* PollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PollVC.h; path = Controllers/PollVC.h; sourceTree = "<group>"; };
 		660D48D11B99DAE000802B05 /* PollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PollVC.m; path = Controllers/PollVC.m; sourceTree = "<group>"; };
+		660D48D41B99DBB400802B05 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardView.xib; path = Xibs/CardView.xib; sourceTree = "<group>"; };
+		660D48D71B99DCA900802B05 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardView.h; path = Xibs/Views/CardView.h; sourceTree = "<group>"; };
+		660D48D81B99DCA900802B05 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardView.m; path = Xibs/Views/CardView.m; sourceTree = "<group>"; };
+		660D48DA1B99E01500802B05 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		660D48DB1B99E01500802B05 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
 		AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pinder/Pods-Pinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +105,9 @@
 		660D48A11B99CF2400802B05 /* Pinder */ = {
 			isa = PBXGroup;
 			children = (
+				660D48DA1B99E01500802B05 /* UIColor+FlatColors.h */,
+				660D48DB1B99E01500802B05 /* UIColor+FlatColors.m */,
+				660D48D31B99DB9300802B05 /* Xibs */,
 				660D48CF1B99D22000802B05 /* Storyboards */,
 				660D48CE1B99D21600802B05 /* Controllers */,
 				660D48CD1B99D20C00802B05 /* Models */,
@@ -173,6 +184,24 @@
 				660D48AF1B99CF2400802B05 /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		660D48D31B99DB9300802B05 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				660D48D61B99DC8500802B05 /* Views */,
+				660D48D41B99DBB400802B05 /* CardView.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		660D48D61B99DC8500802B05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				660D48D71B99DCA900802B05 /* CardView.h */,
+				660D48D81B99DCA900802B05 /* CardView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		83192DD78C1E10FC7C2B54F0 /* Frameworks */ = {
@@ -267,6 +296,7 @@
 			files = (
 				660D48B11B99CF2400802B05 /* Main.storyboard in Resources */,
 				660D48B61B99CF2400802B05 /* LaunchScreen.xib in Resources */,
+				660D48D51B99DBB400802B05 /* CardView.xib in Resources */,
 				660D48B31B99CF2400802B05 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,8 +348,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660D48DC1B99E01500802B05 /* UIColor+FlatColors.m in Sources */,
 				660D48D21B99DAE000802B05 /* PollVC.m in Sources */,
 				660D48A81B99CF2400802B05 /* AppDelegate.m in Sources */,
+				660D48D91B99DCA900802B05 /* CardView.m in Sources */,
 				660D48A51B99CF2400802B05 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
