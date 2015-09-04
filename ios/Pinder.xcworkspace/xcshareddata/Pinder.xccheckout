@@ -14,11 +14,11 @@
 		<string>https://github.com/Dokidocu/pinder.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Pinder.xcworkspace</string>
+	<string>ios/Pinder.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>AF1D1D8C13B4E162E3461D470E17DB49526AFA6A</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Dokidocu/pinder.git</string>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>AF1D1D8C13B4E162E3461D470E17DB49526AFA6A</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Pinder</string>
+			<string>pinder</string>
 		</dict>
 	</array>
 </dict>
