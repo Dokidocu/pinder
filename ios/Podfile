@@ -3,6 +3,8 @@
 
 target 'Pinder' do
    pod 'ZLSwipeableView'
+   pod 'AFNetworking', '~> 2.6'
+   pod 'MBProgressHUD', '~> 0.9'
 end
 
 target 'PinderTests' do

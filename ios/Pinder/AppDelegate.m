@@ -14,9 +14,12 @@
 
 @implementation AppDelegate
 
-
+#pragma mark - AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //GET all "private parties" + "themes"
+    
     return YES;
 }
 
@@ -40,6 +43,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - NetworkManagerProtocol
+-(void)didRetrieveResponse:(id)response forRequest:(int)request{
+    
+}
+
+
+-(void)didFailRetrievingResponse:(NSString *)response forRequest:(int)request{
+    
 }
 
 @end

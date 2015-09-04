@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkManager.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, NetworkManagerProtocol>
 
 @property (strong, nonatomic) UIWindow *window;
 

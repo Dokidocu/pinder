@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Pinder-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Pinder-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Pinder-ZLSwipeableView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4BB6AA211AB0A8E51F09218E</key>
+		<key>2C037E5A7B71F29990ECE6D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95A3EC152994FE60426D1A5A</key>
+		<key>4A8EFDC9C7D1928DDD8F0D9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE0E1507549EDBB939F05E15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB42F6BE8C7D289E0AFBBB59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
