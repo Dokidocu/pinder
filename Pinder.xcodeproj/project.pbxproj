@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BEBE42667C8226DF5F7D8A4 /* libPods-Pinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */; };
+		660D48A51B99CF2400802B05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48A41B99CF2400802B05 /* main.m */; };
+		660D48A81B99CF2400802B05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48A71B99CF2400802B05 /* AppDelegate.m */; };
+		660D48AB1B99CF2400802B05 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48AA1B99CF2400802B05 /* FirstViewController.m */; };
+		660D48AE1B99CF2400802B05 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48AD1B99CF2400802B05 /* SecondViewController.m */; };
+		660D48B11B99CF2400802B05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 660D48AF1B99CF2400802B05 /* Main.storyboard */; };
+		660D48B31B99CF2400802B05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 660D48B21B99CF2400802B05 /* Images.xcassets */; };
+		660D48B61B99CF2400802B05 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660D48B41B99CF2400802B05 /* LaunchScreen.xib */; };
+		660D48C21B99CF2400802B05 /* PinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48C11B99CF2400802B05 /* PinderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		660D48BC1B99CF2400802B05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 660D48971B99CF2400802B05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 660D489E1B99CF2400802B05;
+			remoteInfo = Pinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		48CA09C530486009FBAEF2E4 /* Pods-Pinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pinder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pinder/Pods-Pinder.release.xcconfig"; sourceTree = "<group>"; };
+		660D489F1B99CF2400802B05 /* Pinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		660D48A31B99CF2400802B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		660D48A41B99CF2400802B05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		660D48A61B99CF2400802B05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		660D48A71B99CF2400802B05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		660D48A91B99CF2400802B05 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		660D48AA1B99CF2400802B05 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		660D48AC1B99CF2400802B05 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		660D48AD1B99CF2400802B05 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		660D48B01B99CF2400802B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		660D48B21B99CF2400802B05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		660D48B51B99CF2400802B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		660D48BB1B99CF2400802B05 /* PinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		660D48C01B99CF2400802B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		660D48C11B99CF2400802B05 /* PinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinderTests.m; sourceTree = "<group>"; };
+		AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pinder/Pods-Pinder.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		660D489C1B99CF2400802B05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BEBE42667C8226DF5F7D8A4 /* libPods-Pinder.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		660D48B81B99CF2400802B05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FB464A1547A461CCBCFCD4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */,
+				48CA09C530486009FBAEF2E4 /* Pods-Pinder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		660D48961B99CF2400802B05 = {
+			isa = PBXGroup;
+			children = (
+				660D48A11B99CF2400802B05 /* Pinder */,
+				660D48BE1B99CF2400802B05 /* PinderTests */,
+				660D48A01B99CF2400802B05 /* Products */,
+				2FB464A1547A461CCBCFCD4B /* Pods */,
+				83192DD78C1E10FC7C2B54F0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		660D48A01B99CF2400802B05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				660D489F1B99CF2400802B05 /* Pinder.app */,
+				660D48BB1B99CF2400802B05 /* PinderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		660D48A11B99CF2400802B05 /* Pinder */ = {
+			isa = PBXGroup;
+			children = (
+				660D48CF1B99D22000802B05 /* Storyboards */,
+				660D48CE1B99D21600802B05 /* Controllers */,
+				660D48CD1B99D20C00802B05 /* Models */,
+				660D48CC1B99D20300802B05 /* Utils */,
+				660D48CB1B99D1FC00802B05 /* Managers */,
+				660D48A61B99CF2400802B05 /* AppDelegate.h */,
+				660D48A71B99CF2400802B05 /* AppDelegate.m */,
+				660D48A91B99CF2400802B05 /* FirstViewController.h */,
+				660D48AA1B99CF2400802B05 /* FirstViewController.m */,
+				660D48AC1B99CF2400802B05 /* SecondViewController.h */,
+				660D48AD1B99CF2400802B05 /* SecondViewController.m */,
+				660D48AF1B99CF2400802B05 /* Main.storyboard */,
+				660D48B21B99CF2400802B05 /* Images.xcassets */,
+				660D48B41B99CF2400802B05 /* LaunchScreen.xib */,
+				660D48A21B99CF2400802B05 /* Supporting Files */,
+			);
+			path = Pinder;
+			sourceTree = "<group>";
+		};
+		660D48A21B99CF2400802B05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				660D48A31B99CF2400802B05 /* Info.plist */,
+				660D48A41B99CF2400802B05 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		660D48BE1B99CF2400802B05 /* PinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				660D48C11B99CF2400802B05 /* PinderTests.m */,
+				660D48BF1B99CF2400802B05 /* Supporting Files */,
+			);
+			path = PinderTests;
+			sourceTree = "<group>";
+		};
+		660D48BF1B99CF2400802B05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				660D48C01B99CF2400802B05 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		660D48CB1B99D1FC00802B05 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		660D48CC1B99D20300802B05 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		660D48CD1B99D20C00802B05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		660D48CE1B99D21600802B05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		660D48CF1B99D22000802B05 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		83192DD78C1E10FC7C2B54F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		660D489E1B99CF2400802B05 /* Pinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 660D48C51B99CF2400802B05 /* Build configuration list for PBXNativeTarget "Pinder" */;
+			buildPhases = (
+				BD321BB9F6DBAD169729709E /* Check Pods Manifest.lock */,
+				660D489B1B99CF2400802B05 /* Sources */,
+				660D489C1B99CF2400802B05 /* Frameworks */,
+				660D489D1B99CF2400802B05 /* Resources */,
+				B32B1930A84A1AE6A88CBDE8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pinder;
+			productName = Pinder;
+			productReference = 660D489F1B99CF2400802B05 /* Pinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		660D48BA1B99CF2400802B05 /* PinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 660D48C81B99CF2400802B05 /* Build configuration list for PBXNativeTarget "PinderTests" */;
+			buildPhases = (
+				660D48B71B99CF2400802B05 /* Sources */,
+				660D48B81B99CF2400802B05 /* Frameworks */,
+				660D48B91B99CF2400802B05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				660D48BD1B99CF2400802B05 /* PBXTargetDependency */,
+			);
+			name = PinderTests;
+			productName = PinderTests;
+			productReference = 660D48BB1B99CF2400802B05 /* PinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		660D48971B99CF2400802B05 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = OpenData;
+				TargetAttributes = {
+					660D489E1B99CF2400802B05 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					660D48BA1B99CF2400802B05 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 660D489E1B99CF2400802B05;
+					};
+				};
+			};
+			buildConfigurationList = 660D489A1B99CF2400802B05 /* Build configuration list for PBXProject "Pinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 660D48961B99CF2400802B05;
+			productRefGroup = 660D48A01B99CF2400802B05 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				660D489E1B99CF2400802B05 /* Pinder */,
+				660D48BA1B99CF2400802B05 /* PinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		660D489D1B99CF2400802B05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660D48B11B99CF2400802B05 /* Main.storyboard in Resources */,
+				660D48B61B99CF2400802B05 /* LaunchScreen.xib in Resources */,
+				660D48B31B99CF2400802B05 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		660D48B91B99CF2400802B05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B32B1930A84A1AE6A88CBDE8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pinder/Pods-Pinder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD321BB9F6DBAD169729709E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		660D489B1B99CF2400802B05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660D48AE1B99CF2400802B05 /* SecondViewController.m in Sources */,
+				660D48A81B99CF2400802B05 /* AppDelegate.m in Sources */,
+				660D48AB1B99CF2400802B05 /* FirstViewController.m in Sources */,
+				660D48A51B99CF2400802B05 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		660D48B71B99CF2400802B05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660D48C21B99CF2400802B05 /* PinderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		660D48BD1B99CF2400802B05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 660D489E1B99CF2400802B05 /* Pinder */;
+			targetProxy = 660D48BC1B99CF2400802B05 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		660D48AF1B99CF2400802B05 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				660D48B01B99CF2400802B05 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		660D48B41B99CF2400802B05 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				660D48B51B99CF2400802B05 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		660D48C31B99CF2400802B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		660D48C41B99CF2400802B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		660D48C61B99CF2400802B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Pinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		660D48C71B99CF2400802B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48CA09C530486009FBAEF2E4 /* Pods-Pinder.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Pinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		660D48C91B99CF2400802B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pinder.app/Pinder";
+			};
+			name = Debug;
+		};
+		660D48CA1B99CF2400802B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pinder.app/Pinder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		660D489A1B99CF2400802B05 /* Build configuration list for PBXProject "Pinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660D48C31B99CF2400802B05 /* Debug */,
+				660D48C41B99CF2400802B05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		660D48C51B99CF2400802B05 /* Build configuration list for PBXNativeTarget "Pinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660D48C61B99CF2400802B05 /* Debug */,
+				660D48C71B99CF2400802B05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		660D48C81B99CF2400802B05 /* Build configuration list for PBXNativeTarget "PinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660D48C91B99CF2400802B05 /* Debug */,
+				660D48CA1B99CF2400802B05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 660D48971B99CF2400802B05 /* Project object */;
+}

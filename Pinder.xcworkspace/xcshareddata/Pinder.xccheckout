@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FB695258-2543-48A3-BCB5-C63879DA2FC4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Pinder</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AF1D1D8C13B4E162E3461D470E17DB49526AFA6A</key>
+		<string>https://github.com/Dokidocu/pinder.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Pinder.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AF1D1D8C13B4E162E3461D470E17DB49526AFA6A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Dokidocu/pinder.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AF1D1D8C13B4E162E3461D470E17DB49526AFA6A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AF1D1D8C13B4E162E3461D470E17DB49526AFA6A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Pinder</string>
+		</dict>
+	</array>
+</dict>
+</plist>
