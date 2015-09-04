@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Question;
 use App\Answer;
 use App\Http\Controllers\Controller;
+use JWTAuth;
+use Input;
+use Validator;
 
 class QuestionController extends Controller
 {
@@ -42,7 +45,7 @@ class QuestionController extends Controller
         {
             $join->on('questions.id', '=', 'answers.question_id')->where('answers.user_id', '=', $user->id);
 
-        })->whereIsNull('answers.id')
+        })->where('answers.id', '=', null)
         ->get();
 
         return response()->json(['result'=>$questions]);
@@ -65,7 +68,7 @@ class QuestionController extends Controller
         return response()->json(['error'=>'not_implemented'], 403);
     }
 
-    private function addAnswer($id)
+    private function addAnswer($questionId)
     {
         $user = JWTAuth::parseToken()->toUser();
         $data = Input::only('answer');
@@ -83,6 +86,7 @@ class QuestionController extends Controller
         $answer = Answer::create([
             'answer' => $data['answer'],
             'user_id' => $user->id,
+            'question_id' => $questionId,
         ]);
 
         return response()->json(['result'=>$answer], 200);

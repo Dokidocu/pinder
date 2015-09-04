@@ -24,7 +24,7 @@ class Answer extends Model
      *
      * @var array
      */
-    //protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['answer', 'question_id', 'user_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,4 +32,9 @@ class Answer extends Model
      * @var array
      */
     //protected $hidden = ['password', 'remember_token'];
+
+    public function Question()
+    {
+        return $this->hasOne('App\Question', 'question_id');
+    }
 }

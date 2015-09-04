@@ -36,16 +36,16 @@ class TokenAuthController extends Controller {
     public function signup()
     {
         //$nextYear = time() + (7 * 24 * 60 * 60 * 52);
+        echo 'test';
 
         //$customClaims = ['exp' => $nextYear];
-        $credentials = Input::only('email', 'password', 'username', 'uuid');
+        $credentials = Input::only('email', 'password');
 
         $validator = Validator::make(
             $credentials,
             [
                 'email' => ['required', 'email'],
                 'password' => ['required'],
-                'username' => ['min:3'],
             ]
         );
 
@@ -59,8 +59,6 @@ class TokenAuthController extends Controller {
         try
         {
             $user = User::create($credentials);
-            $userRole = Role::where('name', '=', 'user')->first();
-            $user->roles()->attach($userRole->id);
         }
         catch (Exception $e)
         {
