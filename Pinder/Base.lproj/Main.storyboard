@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Poll-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Poll" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768" y="-653.25"/>
         </scene>
-        <!--Second-->
+        <!--Add-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
@@ -36,13 +36,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Stats-->
         <scene sceneID="mQ7-2D-qtt">
             <objects>
                 <viewController id="F3u-dI-2HD" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="NPf-Jl-uJP"/>
+                    <tabBarItem key="tabBarItem" title="Stats" id="NPf-Jl-uJP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0L-UY-ikl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

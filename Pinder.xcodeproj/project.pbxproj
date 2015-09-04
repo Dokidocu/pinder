@@ -14,6 +14,7 @@
 		660D48B31B99CF2400802B05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 660D48B21B99CF2400802B05 /* Images.xcassets */; };
 		660D48B61B99CF2400802B05 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660D48B41B99CF2400802B05 /* LaunchScreen.xib */; };
 		660D48C21B99CF2400802B05 /* PinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48C11B99CF2400802B05 /* PinderTests.m */; };
+		660D48D21B99DAE000802B05 /* PollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48D11B99DAE000802B05 /* PollVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,8 @@
 		660D48BB1B99CF2400802B05 /* PinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		660D48C01B99CF2400802B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		660D48C11B99CF2400802B05 /* PinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinderTests.m; sourceTree = "<group>"; };
+		660D48D01B99DAE000802B05 /* PollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PollVC.h; path = Controllers/PollVC.h; sourceTree = "<group>"; };
+		660D48D11B99DAE000802B05 /* PollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PollVC.m; path = Controllers/PollVC.m; sourceTree = "<group>"; };
 		AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pinder/Pods-Pinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +104,6 @@
 				660D48CB1B99D1FC00802B05 /* Managers */,
 				660D48A61B99CF2400802B05 /* AppDelegate.h */,
 				660D48A71B99CF2400802B05 /* AppDelegate.m */,
-				660D48AF1B99CF2400802B05 /* Main.storyboard */,
 				660D48B21B99CF2400802B05 /* Images.xcassets */,
 				660D48B41B99CF2400802B05 /* LaunchScreen.xib */,
 				660D48A21B99CF2400802B05 /* Supporting Files */,
@@ -159,6 +161,8 @@
 		660D48CE1B99D21600802B05 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				660D48D01B99DAE000802B05 /* PollVC.h */,
+				660D48D11B99DAE000802B05 /* PollVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +170,7 @@
 		660D48CF1B99D22000802B05 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				660D48AF1B99CF2400802B05 /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660D48D21B99DAE000802B05 /* PollVC.m in Sources */,
 				660D48A81B99CF2400802B05 /* AppDelegate.m in Sources */,
 				660D48A51B99CF2400802B05 /* main.m in Sources */,
 			);
