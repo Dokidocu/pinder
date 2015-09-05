@@ -77,6 +77,27 @@ class CreateUsersTable extends Migration
             $table->foreign('party_id')->references('id')->on('parties');
         });
 
+        Schema::create('tags', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('question_tag', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('question_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
+
+            // Adds a delete date instead of actually deleting a row
+            $table->softDeletes();
+            // Adds created and modified fields
+            $table->timestamps();
+
+            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreign('tag_id')->references('id')->on('tags');
+        });
+
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('answer');
@@ -97,6 +118,8 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('question_theme');
+        Schema::drop('question_tag');
+        Schema::drop('tags');
         Schema::drop('user_party');
         Schema::drop('users');
         Schema::drop('questions');

@@ -11,6 +11,10 @@
 |
 */
 //use App\Http\Controllers\Auth\TokenAuthController;
+Route::get('/', function()
+{
+    return 'Hello World';
+});
 
 // Register a new user and return his JWT token
 Route::post('/signup', 'Auth\TokenAuthController@signup');

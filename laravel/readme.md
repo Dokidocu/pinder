@@ -26,7 +26,7 @@ parameters: '''email''' and '''password'''
 parameters: '''answer''' : string
 
 '''POST v0/question'''  send new question
-parameters: '''text''' : string, ''''themes''' : array of ids
+parameters: '''text''' : string, '''theme''' : a theme id, '''answer''': string
 
 '''GET v0/party'''  get list of parties
 

@@ -71,7 +71,8 @@ class QuestionController extends Controller
         $validator = Validator::make(
             $data, [
                 'text' => 'string|required',
-                'themes' => 'array',
+                'theme' => 'integer',
+                'answer' => 'string',
             ]
         );
 
@@ -86,11 +87,8 @@ class QuestionController extends Controller
             'author' => $user->id,
         ]);
 
-        foreach($data['themes'] as $theme)
-        {
-            $myTheme = Theme::find(integerValue($theme));
-            $question->themes()->attach($myTheme->id);
-        }
+        $myTheme = Theme::find(integerValue($data['theme']));
+        $question->themes()->attach($myTheme->id);
 
         return response()->json(['result'=>$question], 200);
     }

@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Theme;
 use App\Question;
 use App\User;
+use App\Party;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ThemesSeeder::class);
         $this->call(QuestionsSeeder::class);
         $this->call(UsersSeeder::class);
+        $this->call(PartiesSeeder::class);
 
         Model::reguard();
     }
@@ -55,6 +57,52 @@ class ThemesSeeder extends Seeder {
         {
             Theme::create([
                 'name' => $theme
+            ]);
+        }
+    }
+}
+
+class PartiesSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('parties')->delete();
+
+        $parties = array(
+            "PS",
+            "PLR",
+            "Jeunes PLR",
+            "Les Verts",
+            "Jeunes Verts",
+            "UDC",
+            "Jeunes UDC",
+            "JUSO",
+            "PBD",
+            "Jeunes PBD",
+            "PDC",
+            "Jeunes PDC",
+            "Vert'libéraux",
+            "POP et solidaritéS",
+            "Pirate",
+            "Vote blanc",
+            "Indépendants vaudois",
+            "Ecopop",
+            "PEV",
+            "Ensemble à Gauche",
+            "MCG",
+            "Jeunes MCG",
+            "CS-POP",
+            "PCSI",
+            "JPEV",
+            "La Gauche",
+            "POP",
+            "Centre Gauche-PCS",
+        );
+
+        foreach($parties as $party)
+        {
+            Party::create([
+                'name' => $party
             ]);
         }
     }
