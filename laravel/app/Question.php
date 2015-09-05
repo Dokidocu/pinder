@@ -37,4 +37,25 @@ class Question extends Model
     {
         return $this->belongsToMany('App\Theme', 'question_theme', 'question_id', 'theme_id')->withTimestamps();
     }
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answer', 'question_id');
+    }
+
+    public function yesCount()
+    {
+        return $this->hasOne('App\Answer', 'question_id')
+            ->selectRaw('question_id, count(*) as yes_count')
+            ->where('answer', '=', 'YES')
+            ->groupBy('question_id');
+    }
+
+    public function noCount()
+    {
+        return $this->hasOne('App\Answer', 'question_id')
+            ->selectRaw('question_id, count(*) as no_count')
+            ->where('answer', '=', 'NO')
+            ->groupBy('question_id');
+    }
 }
