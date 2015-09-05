@@ -6,6 +6,14 @@
 
 Ip address: 188.166.45.118
 
+'''POST signin''' get a token and create an account
+parameters: '''email''' and '''password'''
+
+'''POST signup''' get a token for an exsiting account
+parameters: '''email''' and '''password'''
+
+'''GET refreah''' refresh a token
+
 '''GET v0/question''' answered questions
 
 '''GET v0/question/new''' new questions
