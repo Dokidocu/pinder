@@ -5,6 +5,8 @@
 ## Api
 
 Ip address: 188.166.45.118
+Token in header or as a url parameter (with name '''token''')
+In header: Authorization Bearer: token
 
 '''POST signin''' get a token and create an account
 parameters: '''email''' and '''password'''
