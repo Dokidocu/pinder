@@ -22,6 +22,8 @@ import datetime
 class Question(object):
     pass
 
+class QuestionTag(object):
+    pass
 
 class Tag(object):
     pass
@@ -35,6 +37,9 @@ mapper(Tag, db_tags)
 db_questions = Table('questions', metadata, autoload=True, autoload_with=engine)
 mapper(Question, db_questions)
 
+db_questions_tags = Table('question_tag', metadata, autoload=True, autoload_with=engine)
+mapper(QuestionTag, db_questions_tags)
+
 Session = sessionmaker(bind=engine)
 my_session = Session()
 
@@ -44,10 +49,6 @@ import csv
 with open('tweets.csv', 'rb') as csvfile:
 	reader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
-	last_id = 0
-	current_id = 0
-	change = 1
-
 	for row in reader:
 		print row[0]
 		print row[1]
@@ -55,19 +56,8 @@ with open('tweets.csv', 'rb') as csvfile:
 		print row[3]
 
 		my_question = Question()
-
-		current_id = int(row[0])
-		new_id = current_id
-
-		if current_id < last_id:
-			new_id = current_id + (change * 100)
-			change = change + 1
-		elif change > 1:
-			new_id = current_id + (change * 100)
-
-		last_id = current_id
 	
-		my_question.id = new_id
+		my_question.id = int(row[0])
 		my_question.title = '' 
 		my_question.link = '' 
 		my_question.text = row[3]
@@ -76,6 +66,36 @@ with open('tweets.csv', 'rb') as csvfile:
 		my_question.created_at = row[2]
 		my_question.updated_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 	
-		my_session.add(my_question)
+		try:
+			my_session.add(my_question)
+			my_session.commit()
+		except:
+			print 'error'
+
+with open('tags.csv', 'rb') as csvfile:
+	reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+
+	for row in reader:
+		my_tag = Tag()
+
+		name = row[0]
+
+		my_tag = my_session.query(Tag).filter(
+		    Tag.name.like(name)).first()
+
+		if not my_tag:
+			my_tag = Tag()
+			my_tag.name = name
+			my_tag.created_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+			my_tag.updated_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+			my_session.add(my_tag)
+			my_session.commit()
+
+		my_question_tag = QuestionTag()
+		my_question_tag.question_id = row[2]
+		my_question_tag.tag_id = my_tag.id
+
+		my_session.add(my_question_tag)
 		my_session.commit()
+
 
