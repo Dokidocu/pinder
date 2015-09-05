@@ -24,7 +24,7 @@ class Question extends Model
      *
      * @var array
      */
-    //protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['text', 'title', 'author', 'source', 'link', ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,5 +36,26 @@ class Question extends Model
     public function themes()
     {
         return $this->belongsToMany('App\Theme', 'question_theme', 'question_id', 'theme_id')->withTimestamps();
+    }
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answer', 'question_id');
+    }
+
+    public function yesCount()
+    {
+        return $this->hasOne('App\Answer', 'question_id')
+            ->selectRaw('question_id, count(*) as yes_count')
+            ->where('answer', '=', 'YES')
+            ->groupBy('question_id');
+    }
+
+    public function noCount()
+    {
+        return $this->hasOne('App\Answer', 'question_id')
+            ->selectRaw('question_id, count(*) as no_count')
+            ->where('answer', '=', 'NO')
+            ->groupBy('question_id');
     }
 }

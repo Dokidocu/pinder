@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use App\Answer;
+use App\Theme;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use Input;
@@ -27,11 +28,11 @@ class QuestionController extends Controller
         $user = JWTAuth::parseToken()->toUser();
 
         // Questions that the user has already answered
-        $questions = Question::select('questions.*')->join('answers', function($join) use ($user)
+        $questions = Question::whereHas('answers', function($q) use ($user)
         {
-            $join->on('questions.id', '=', 'answers.question_id')->where('answers.user_id', '=', $user->id);
+            $q->where('answers.user_id', '=', $user->id);
 
-        })->get();
+        })->with(['yesCount', 'noCount'])->get();
 
         return response()->json(['result'=>$questions]);
     }
@@ -46,6 +47,7 @@ class QuestionController extends Controller
             $join->on('questions.id', '=', 'answers.question_id')->where('answers.user_id', '=', $user->id);
 
         })->where('answers.id', '=', null)
+            ->with(['themes'])
         ->get();
 
         return response()->json(['result'=>$questions]);
@@ -65,28 +67,77 @@ class QuestionController extends Controller
 
     private function addQuestion()
     {
-        return response()->json(['error'=>'not_implemented'], 403);
+        $user = JWTAuth::parseToken()->toUser();
+        $data = Input::only('text', 'theme', 'answer');
+        $validator = Validator::make(
+            $data, [
+                'text' => 'string|required',
+                'theme' => 'integer',
+                'answer' => 'string',
+            ]
+        );
+
+        if ($validator->fails())
+        {
+            return response()->json(['error' => 'invalid_data', 'message'=>'text is required'], 400);
+        }
+
+        $question = Question::create([
+            'text' => $data['text'],
+            'source' => 'app',
+            'author' => $user->id,
+        ]);
+
+        if (Input::has('theme'))
+        {
+            $myTheme = Theme::find(intval($data['theme']));
+
+            if($myTheme)
+            {
+                $question->themes()->attach($myTheme->id);
+            }
+        }
+
+        if (Input::has('answer'))
+        {
+            $answer = Answer::create([
+                'answer' => $data['answer'],
+                'user_id' => $user->id,
+                'question_id' => $question->id,
+            ]);
+        }
+
+        return response()->json(['result'=>$question], 200);
     }
 
     private function addAnswer($questionId)
     {
         $user = JWTAuth::parseToken()->toUser();
+
         $data = Input::only('answer');
         $validator = Validator::make(
             $data, [
-                'answer' => 'string',
+                'answer' => 'string|required',
                 ]
         );
 
         if ($validator->fails())
         {
+            //print_r($validator->errors());
             return response()->json(['error' => 'invalid_data', 'message'=>'answer is required'], 400);
+        }
+
+        $question = Question::find(intval($questionId));
+
+        if(!$question)
+        {
+            return response()->json(['error' => 'invalid_data', 'message'=>'invalid_question'], 400);
         }
 
         $answer = Answer::create([
             'answer' => $data['answer'],
             'user_id' => $user->id,
-            'question_id' => $questionId,
+            'question_id' => $question->id,
         ]);
 
         return response()->json(['result'=>$answer], 200);
