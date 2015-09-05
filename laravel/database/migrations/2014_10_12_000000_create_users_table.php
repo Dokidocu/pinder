@@ -17,6 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
+            $table->dateTime('birthday');
+            $table->integer('postcode');
+            $table->string('gender');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -25,7 +28,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('text');
-            $table->string('ends_at');
+            $table->string('author');
+            $table->string('source');
+            $table->string('link');
+            $table->string('ends_at')->nullable()->default(null);
             $table->timestamps();
         });
 
@@ -35,7 +41,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('questions_themes', function(Blueprint $table)
+        Schema::create('question_theme', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('question_id')->unsigned();
@@ -56,7 +62,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('users_parties', function(Blueprint $table)
+        Schema::create('user_party', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -74,10 +80,12 @@ class CreateUsersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('answer');
+            $table->integer('question_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 
@@ -88,8 +96,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('questions_themes');
-        Schema::drop('users_parties');
+        Schema::drop('question_theme');
+        Schema::drop('user_party');
         Schema::drop('users');
         Schema::drop('questions');
         Schema::drop('themes');

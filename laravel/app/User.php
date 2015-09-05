@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use \Hash;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -28,7 +29,15 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'birthday', 'postcode'];
+
+    /**
+     * Automatically hash the password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +45,14 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function parties()
+    {
+        return $this->belongsToMany('App\Party', 'user_party', 'party_id', 'user_id')->withTimestamps();
+    }
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answer', 'user_id');
+    }
 }

@@ -32,4 +32,9 @@ class Question extends Model
      * @var array
      */
     //protected $hidden = ['password', 'remember_token'];
+
+    public function themes()
+    {
+        return $this->belongsToMany('App\Theme', 'question_theme', 'question_id', 'theme_id')->withTimestamps();
+    }
 }

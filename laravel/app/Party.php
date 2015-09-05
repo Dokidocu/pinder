@@ -32,4 +32,9 @@ class Party extends Model
      * @var array
      */
     //protected $hidden = ['password', 'remember_token'];
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'user_party', 'user_id', 'party_id')->withTimestamps();
+    }
 }

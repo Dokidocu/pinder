@@ -10,9 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//use App\Http\Controllers\Auth\TokenAuthController;
 
 // Register a new user and return his JWT token
 Route::post('/signup', 'Auth\TokenAuthController@signup');
+
 // Get a token for an email/password
 Route::post('/signin', 'Auth\TokenAuthController@signin');
 // Get a new token from an invalid token
@@ -23,8 +25,8 @@ Route::get('/signout', 'Auth\TokenAuthController@signout');
 Route::get('/test', 'Auth\TokenAuthController@test');
 
 // Only allow authed users to access the API v0, checked with the JWT plugin
-Route::group(['prefix' => 'v0', 'middleware' => ['jwt.auth']], function(){
-//Route::group(['prefix' => 'v0'], function(){
+Route::group(['prefix' => 'v0', 'middleware' => ['jwt.auth']], function()
+{
 
     Route::get('/', function()
     {
