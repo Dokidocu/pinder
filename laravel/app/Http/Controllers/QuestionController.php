@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use App\Answer;
+use App\Theme;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use Input;
@@ -65,7 +66,33 @@ class QuestionController extends Controller
 
     private function addQuestion()
     {
-        return response()->json(['error'=>'not_implemented'], 403);
+        $user = JWTAuth::parseToken()->toUser();
+        $data = Input::only('text');
+        $validator = Validator::make(
+            $data, [
+                'text' => 'string|required',
+                'themes' => 'array',
+            ]
+        );
+
+        if ($validator->fails())
+        {
+            return response()->json(['error' => 'invalid_data', 'message'=>'text is required'], 400);
+        }
+
+        $question = Question::create([
+            'text' => $data['text'],
+            'source' => 'app',
+            'author' => $user->id,
+        ]);
+
+        foreach($data['themes'] as $theme)
+        {
+            $myTheme = Theme::find(integerValue($theme));
+            $question->themes()->attach($myTheme->id);
+        }
+
+        return response()->json(['result'=>$question], 200);
     }
 
     private function addAnswer($questionId)
@@ -74,7 +101,7 @@ class QuestionController extends Controller
         $data = Input::only('answer');
         $validator = Validator::make(
             $data, [
-                'answer' => 'string',
+                'answer' => 'string|required',
                 ]
         );
 

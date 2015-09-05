@@ -24,7 +24,7 @@ class Question extends Model
      *
      * @var array
      */
-    //protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['text', 'title', 'author', 'source', 'link', ];
 
     /**
      * The attributes excluded from the model's JSON form.
