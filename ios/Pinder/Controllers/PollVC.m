@@ -19,32 +19,6 @@
     [super viewDidLoad];
     pollQuestionsIndex = 0;
     pollQuestions = [[NetworkManager sharedNetworkManager]getPollQuestions];
-    
-    /*
-    self.colorIndex = 0;
-    self.colors = @[
-                    @"Turquoise",
-                    @"Green Sea",
-                    @"Emerald",
-                    @"Nephritis",
-                    @"Peter River",
-                    @"Belize Hole",
-                    @"Amethyst",
-                    @"Wisteria",
-                    @"Wet Asphalt",
-                    @"Midnight Blue",
-                    @"Sun Flower",
-                    @"Orange",
-                    @"Carrot",
-                    @"Pumpkin",
-                    @"Alizarin",
-                    @"Pomegranate",
-                    @"Clouds",
-                    @"Silver",
-                    @"Concrete",
-                    @"Asbestos"
-                    ];*/
-    
     // Optional Delegate
     self.swipeableView.delegate = self;
 }
@@ -56,6 +30,16 @@
 - (void)viewDidLayoutSubviews {
     // Required Data Source
     self.swipeableView.dataSource = self;
+}
+
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier]isEqualToString:@"AddStatementVC"]) {
+        AddStatementVC *dest = [segue destinationViewController];
+        dest.providesPresentationContextTransitionStyle = YES;
+        dest.definesPresentationContext = YES;
+        [dest setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+    }
 }
 
 #pragma mark - ZLSwipeableViewDataSource
@@ -70,7 +54,6 @@
                                          options:nil] objectAtIndex:0];
             contentView.translatesAutoresizingMaskIntoConstraints = NO;
             [view addSubview:contentView];
-            
             // This is important:
             // https://github.com/zhxnlai/ZLSwipeableView/issues/9
             NSDictionary *metrics = @{
@@ -105,52 +88,6 @@
         
         
     }
-    /*
-    if (self.colorIndex < self.colors.count) {
-        CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
-        view.backgroundColor = [self colorForName:self.colors[self.colorIndex]];
-        self.colorIndex++;
-        
-        if (self.loadCardFromXib) {
-            UIView *contentView =
-            [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
-                                           owner:self
-                                         options:nil] objectAtIndex:0];
-            contentView.translatesAutoresizingMaskIntoConstraints = NO;
-            [view addSubview:contentView];
-            
-            // This is important:
-            // https://github.com/zhxnlai/ZLSwipeableView/issues/9
-            NSDictionary *metrics = @{
-                                      @"height" : @(view.bounds.size.height),
-                                      @"width" : @(view.bounds.size.width)
-                                      };
-            NSDictionary *views = NSDictionaryOfVariableBindings(contentView);
-            [view addConstraints:
-             [NSLayoutConstraint
-              constraintsWithVisualFormat:@"H:|[contentView(width)]"
-              options:0
-              metrics:metrics
-              views:views]];
-            [view addConstraints:[NSLayoutConstraint
-                                  constraintsWithVisualFormat:
-                                  @"V:|[contentView(height)]"
-                                  options:0
-                                  metrics:metrics
-                                  views:views]];
-        } else {
-            UITextView *textView =
-            [[UITextView alloc] initWithFrame:view.bounds];
-            textView.text = @"This UITextView was created programmatically.";
-            textView.backgroundColor = [UIColor clearColor];
-            textView.font = [UIFont systemFontOfSize:24];
-            textView.editable = NO;
-            textView.selectable = NO;
-            [view addSubview:textView];
-        }
-        
-        return view;
-    }*/
     return nil;
 }
 
@@ -165,7 +102,7 @@
     }else if(direction == 4){//up
         //[[NetworkManager sharedNetworkManager]sendQuestion:nil forDelegate:nil];
     }
-    NSLog(@"did swipe in direction: %zd", direction);
+    //NSLog(@"did swipe in direction: %zd", direction);
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
@@ -193,6 +130,7 @@
 }
 
 #pragma mark - ()
+/*
 - (UIColor *)colorForName:(NSString *)name {
     NSString *sanitizedName =
     [name stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -200,10 +138,9 @@
     [NSString stringWithFormat:@"flat%@Color", sanitizedName];
     Class colorClass = [UIColor class];
     return [colorClass performSelector:NSSelectorFromString(selectorString)];
-}
+}*/
 
 #pragma mark - Action
-
 - (IBAction)swipeLeftButtonAction:(UIButton *)sender {
     //NSLog(@"swipeLeftButtonAction");
     [self.swipeableView swipeTopViewToLeft];
@@ -216,6 +153,10 @@
 - (IBAction)swipeUpButtonAction:(UIButton *)sender {
     //NSLog(@"swipeUpButtonAction");
     [self.swipeableView swipeTopViewToUp];
+}
+
+- (IBAction)addStatementAction:(id)sender {
+    [self performSegueWithIdentifier:@"AddStatementVC" sender:nil];
 }
 - (IBAction)swipeDownButtonAction:(UIButton *)sender {
     //NSLog(@"swipeDownButtonAction");

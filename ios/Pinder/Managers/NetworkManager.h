@@ -21,11 +21,13 @@ enum requests{
 
 @interface NetworkManager : NSObject{
     NSMutableArray *pollQuestions;
+    NSMutableArray *themes;
 }
 
 +(instancetype)sharedNetworkManager;
 
 -(NSArray *)getPollQuestions;
+-(NSArray *)getThemes;
 
 -(void)retrieveAllQuestionsNotAnswered:(id<NetworkManagerProtocol>)delegate;
 -(void)retrieveMyQuestionsAnswered:(id<NetworkManagerProtocol>)delegate;
