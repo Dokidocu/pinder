@@ -16,6 +16,7 @@ NSString *const kUrl = @"http://";
 - (instancetype)init{
     if (self = [super init]) {
         pollQuestions = [[NSMutableArray alloc]init];
+        themes = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -43,6 +44,17 @@ NSString *const kUrl = @"http://";
     }
     //
     return pollQuestions;
+}
+
+-(NSArray *)getThemes{
+    NSMutableDictionary *theme;
+    for (int i = 0; i < 15; i++) {
+        theme = [[NSMutableDictionary alloc]init];
+        [theme setObject:[NSNumber numberWithInt:i] forKey:@"id"];
+        [theme setObject:[NSString stringWithFormat:@"Theme %@", @(i)] forKey:@"name"];
+        [themes addObject:theme];
+    }
+    return themes;
 }
 
 

@@ -10,6 +10,7 @@
 #import "ZLSwipeableView.h"
 #import "CardView.h"
 #import "NetworkManager.h"
+#import "AddStatementVC.h"
 
 @interface PollVC : UIViewController<ZLSwipeableViewDataSource, ZLSwipeableViewDelegate>{
     NSArray *pollQuestions;
@@ -18,15 +19,12 @@
 
 @property (weak, nonatomic) IBOutlet ZLSwipeableView *swipeableView;
 
-///
-/*@property (nonatomic, strong) NSArray *colors;
-@property (nonatomic) NSUInteger colorIndex;*/
-
 @property (nonatomic) BOOL loadCardFromXib;
 
 - (IBAction)swipeLeftButtonAction:(UIButton *)sender;
 - (IBAction)swipeRightButtonAction:(UIButton *)sender;
 - (IBAction)swipeUpButtonAction:(UIButton *)sender;
+- (IBAction)addStatementAction:(id)sender;
 
 //- (IBAction)swipeDownButtonAction:(UIButton *)sender;
 

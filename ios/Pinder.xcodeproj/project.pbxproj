@@ -19,6 +19,7 @@
 		660D48D91B99DCA900802B05 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48D81B99DCA900802B05 /* CardView.m */; };
 		660D48E41B99E62500802B05 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48E31B99E62500802B05 /* UIColor+FlatColors.m */; };
 		660D48E71B99E86400802B05 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48E61B99E86400802B05 /* NetworkManager.m */; };
+		660D48EF1B9A3B9800802B05 /* AddStatementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48EE1B9A3B9800802B05 /* AddStatementVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		660D48E51B99E86400802B05 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Managers/NetworkManager.h; sourceTree = "<group>"; };
 		660D48E61B99E86400802B05 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Managers/NetworkManager.m; sourceTree = "<group>"; };
 		660D48E91B99E93000802B05 /* NetworkManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkManagerProtocol.h; path = Protocols/NetworkManagerProtocol.h; sourceTree = "<group>"; };
+		660D48ED1B9A3B9800802B05 /* AddStatementVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddStatementVC.h; path = Controllers/AddStatementVC.h; sourceTree = "<group>"; };
+		660D48EE1B9A3B9800802B05 /* AddStatementVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddStatementVC.m; path = Controllers/AddStatementVC.m; sourceTree = "<group>"; };
 		AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pinder/Pods-Pinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +184,8 @@
 			children = (
 				660D48D01B99DAE000802B05 /* PollVC.h */,
 				660D48D11B99DAE000802B05 /* PollVC.m */,
+				660D48ED1B9A3B9800802B05 /* AddStatementVC.h */,
+				660D48EE1B9A3B9800802B05 /* AddStatementVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				660D48E41B99E62500802B05 /* UIColor+FlatColors.m in Sources */,
+				660D48EF1B9A3B9800802B05 /* AddStatementVC.m in Sources */,
 				660D48D21B99DAE000802B05 /* PollVC.m in Sources */,
 				660D48A81B99CF2400802B05 /* AppDelegate.m in Sources */,
 				660D48D91B99DCA900802B05 /* CardView.m in Sources */,
