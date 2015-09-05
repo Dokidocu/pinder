@@ -20,6 +20,12 @@
 		660D48E41B99E62500802B05 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48E31B99E62500802B05 /* UIColor+FlatColors.m */; };
 		660D48E71B99E86400802B05 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48E61B99E86400802B05 /* NetworkManager.m */; };
 		660D48EF1B9A3B9800802B05 /* AddStatementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48EE1B9A3B9800802B05 /* AddStatementVC.m */; };
+		660D48F11B9AF3AE00802B05 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660D48F01B9AF3AE00802B05 /* Security.framework */; };
+		660D48F31B9B050700802B05 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 660D48F21B9B050700802B05 /* Sign.storyboard */; };
+		660D48F61B9B0A7B00802B05 /* SignVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48F51B9B0A7B00802B05 /* SignVC.m */; };
+		660D48F91B9B0CFA00802B05 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48F81B9B0CFA00802B05 /* Util.m */; };
+		660D48FC1B9B1C8D00802B05 /* AnsweredListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48FB1B9B1C8D00802B05 /* AnsweredListVC.m */; };
+		660D48FF1B9B232100802B05 /* StatementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D48FE1B9B232100802B05 /* StatementCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,16 @@
 		660D48E91B99E93000802B05 /* NetworkManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkManagerProtocol.h; path = Protocols/NetworkManagerProtocol.h; sourceTree = "<group>"; };
 		660D48ED1B9A3B9800802B05 /* AddStatementVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddStatementVC.h; path = Controllers/AddStatementVC.h; sourceTree = "<group>"; };
 		660D48EE1B9A3B9800802B05 /* AddStatementVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddStatementVC.m; path = Controllers/AddStatementVC.m; sourceTree = "<group>"; };
+		660D48F01B9AF3AE00802B05 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		660D48F21B9B050700802B05 /* Sign.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sign.storyboard; path = Storyboards/Sign.storyboard; sourceTree = "<group>"; };
+		660D48F41B9B0A7B00802B05 /* SignVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignVC.h; path = Controllers/SignVC.h; sourceTree = "<group>"; };
+		660D48F51B9B0A7B00802B05 /* SignVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignVC.m; path = Controllers/SignVC.m; sourceTree = "<group>"; };
+		660D48F71B9B0CFA00802B05 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Utils/Util.h; sourceTree = "<group>"; };
+		660D48F81B9B0CFA00802B05 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Utils/Util.m; sourceTree = "<group>"; };
+		660D48FA1B9B1C8D00802B05 /* AnsweredListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnsweredListVC.h; path = Controllers/AnsweredListVC.h; sourceTree = "<group>"; };
+		660D48FB1B9B1C8D00802B05 /* AnsweredListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnsweredListVC.m; path = Controllers/AnsweredListVC.m; sourceTree = "<group>"; };
+		660D48FD1B9B232100802B05 /* StatementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatementCell.h; path = Controllers/StatementCell.h; sourceTree = "<group>"; };
+		660D48FE1B9B232100802B05 /* StatementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatementCell.m; path = Controllers/StatementCell.m; sourceTree = "<group>"; };
 		AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BF57C31618F1A8F6DF482D /* Pods-Pinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pinder/Pods-Pinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660D48F11B9AF3AE00802B05 /* Security.framework in Frameworks */,
 				0BEBE42667C8226DF5F7D8A4 /* libPods-Pinder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +185,8 @@
 		660D48CC1B99D20300802B05 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				660D48F71B9B0CFA00802B05 /* Util.h */,
+				660D48F81B9B0CFA00802B05 /* Util.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -186,6 +205,12 @@
 				660D48D11B99DAE000802B05 /* PollVC.m */,
 				660D48ED1B9A3B9800802B05 /* AddStatementVC.h */,
 				660D48EE1B9A3B9800802B05 /* AddStatementVC.m */,
+				660D48F41B9B0A7B00802B05 /* SignVC.h */,
+				660D48F51B9B0A7B00802B05 /* SignVC.m */,
+				660D48FA1B9B1C8D00802B05 /* AnsweredListVC.h */,
+				660D48FB1B9B1C8D00802B05 /* AnsweredListVC.m */,
+				660D48FD1B9B232100802B05 /* StatementCell.h */,
+				660D48FE1B9B232100802B05 /* StatementCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				660D48AF1B99CF2400802B05 /* Main.storyboard */,
+				660D48F21B9B050700802B05 /* Sign.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -227,6 +253,7 @@
 		83192DD78C1E10FC7C2B54F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				660D48F01B9AF3AE00802B05 /* Security.framework */,
 				AB4AEF3FF58A47E604DC8814 /* libPods-Pinder.a */,
 			);
 			name = Frameworks;
@@ -317,6 +344,7 @@
 				660D48B11B99CF2400802B05 /* Main.storyboard in Resources */,
 				660D48B61B99CF2400802B05 /* LaunchScreen.xib in Resources */,
 				660D48D51B99DBB400802B05 /* CardView.xib in Resources */,
+				660D48F31B9B050700802B05 /* Sign.storyboard in Resources */,
 				660D48B31B99CF2400802B05 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,10 +399,14 @@
 				660D48E41B99E62500802B05 /* UIColor+FlatColors.m in Sources */,
 				660D48EF1B9A3B9800802B05 /* AddStatementVC.m in Sources */,
 				660D48D21B99DAE000802B05 /* PollVC.m in Sources */,
+				660D48FC1B9B1C8D00802B05 /* AnsweredListVC.m in Sources */,
 				660D48A81B99CF2400802B05 /* AppDelegate.m in Sources */,
 				660D48D91B99DCA900802B05 /* CardView.m in Sources */,
+				660D48F61B9B0A7B00802B05 /* SignVC.m in Sources */,
 				660D48E71B99E86400802B05 /* NetworkManager.m in Sources */,
 				660D48A51B99CF2400802B05 /* main.m in Sources */,
+				660D48F91B9B0CFA00802B05 /* Util.m in Sources */,
+				660D48FF1B9B232100802B05 /* StatementCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

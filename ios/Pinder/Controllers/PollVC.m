@@ -18,9 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     pollQuestionsIndex = 0;
+    currentIndex = 0;
     pollQuestions = [[NetworkManager sharedNetworkManager]getPollQuestions];
     // Optional Delegate
     self.swipeableView.delegate = self;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    pollQuestionsIndex = 0;
+    currentIndex = 0;
+    [[NetworkManager sharedNetworkManager]retrieveAllQuestionsNotAnswered:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,7 +38,7 @@
 
 - (void)viewDidLayoutSubviews {
     // Required Data Source
-    self.swipeableView.dataSource = self;
+    //self.swipeableView.dataSource = self;
 }
 
 #pragma mark - Navigation
@@ -44,9 +53,8 @@
 
 #pragma mark - ZLSwipeableViewDataSource
 -(UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView{
-    if (pollQuestionsIndex < pollQuestions.count - 1) {
+    if (pollQuestionsIndex < pollQuestions.count) {
         CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
-        pollQuestionsIndex++;
         if (self.loadCardFromXib) {
             UIView *contentView =
             [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
@@ -84,9 +92,8 @@
             textView.selectable = NO;
             [view addSubview:textView];
         }
+        pollQuestionsIndex++;
         return view;
-        
-        
     }
     return nil;
 }
@@ -95,13 +102,19 @@
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
          didSwipeView:(UIView *)view
           inDirection:(ZLSwipeableViewDirection)direction {
+    NSLog(@"Statement : %@", [[pollQuestions objectAtIndex:currentIndex ]objectForKey:@"text"]);
+    NSString *questionId = [[pollQuestions objectAtIndex:currentIndex]objectForKey:@"id"];
     if (direction == 1) {//left
-        //[[NetworkManager sharedNetworkManager]sendQuestion:nil forDelegate:nil];
+        [[NetworkManager sharedNetworkManager]answerQuestionId:questionId withAnswer:@"NO" forDelegate:self];
+        currentIndex++;
     }else if (direction == 2){//right
-        //[[NetworkManager sharedNetworkManager]sendQuestion:nil forDelegate:nil];
+        [[NetworkManager sharedNetworkManager]answerQuestionId:questionId withAnswer:@"YES" forDelegate:self];
+        currentIndex++;
     }else if(direction == 4){//up
-        //[[NetworkManager sharedNetworkManager]sendQuestion:nil forDelegate:nil];
+        [[NetworkManager sharedNetworkManager]answerQuestionId:questionId withAnswer:@"NONE" forDelegate:self];
+        currentIndex++;
     }
+    //NSLog(@"questionId : %@", [[pollQuestions objectAtIndex:pollQuestionsIndex-1]objectForKey:@"id"]);
     //NSLog(@"did swipe in direction: %zd", direction);
 }
 
@@ -139,6 +152,21 @@
     Class colorClass = [UIColor class];
     return [colorClass performSelector:NSSelectorFromString(selectorString)];
 }*/
+
+#pragma mark - NetworkManagerProtocol
+-(void)didRetrieveResponse:(id)response forRequest:(int)request{
+    if (RETRIEVE_ALL_QUESTIONS) {
+        pollQuestions = [[NetworkManager sharedNetworkManager]getPollQuestions];
+        //NSLog(@"poll : %@", pollQuestions);
+        self.swipeableView.dataSource = self;
+    }
+}
+
+-(void)didFailRetrievingResponse:(NSString *)response forRequest:(int)request{
+    if (RETRIEVE_ALL_QUESTIONS) {
+        //NSLog(@"poll failed : %@", response);
+    }
+}
 
 #pragma mark - Action
 - (IBAction)swipeLeftButtonAction:(UIButton *)sender {

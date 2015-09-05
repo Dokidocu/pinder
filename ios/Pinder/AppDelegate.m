@@ -16,8 +16,23 @@
 
 #pragma mark - AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
+    [[NetworkManager sharedNetworkManager]retrieveParties:self];
+    [[NetworkManager sharedNetworkManager]retrieveThemes:self];
+    [[NetworkManager sharedNetworkManager]retrieveMyQuestionsAnswered:self];
+    //Launch the right Storyboard
+    UIStoryboard *storyboard;
+    self.window = [UIWindow new];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if (![[NetworkManager sharedNetworkManager] isLogged]) {
+        storyboard = [UIStoryboard storyboardWithName:@"Sign" bundle:nil];
+        [self.window setRootViewController:[storyboard instantiateInitialViewController]];
+    }else{//First Time passed
+        //[[NetworkManager sharedNetworkManager]refreshToken:self];
+        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self.window setRootViewController:[storyboard instantiateInitialViewController]];
+    }
+    [self.window makeKeyAndVisible];
     //GET all "private parties" + "themes"
     
     return YES;
@@ -47,12 +62,18 @@
 
 #pragma mark - NetworkManagerProtocol
 -(void)didRetrieveResponse:(id)response forRequest:(int)request{
-    
+    //NSLog(@"Response : %@", response);
+    //NSLog(@"parties : %@", [[NetworkManager sharedNetworkManager]getParties]);
+    //NSLog(@"themes : %@", [[NetworkManager sharedNetworkManager]getThemes]);
+    //NSLog(@"getToken = %@", [[NetworkManager sharedNetworkManager]getToken]);
+    if (request == REFRESH_TOKEN) {
+        
+    }
 }
 
 
 -(void)didFailRetrievingResponse:(NSString *)response forRequest:(int)request{
-    
+    NSLog(@"Failed : %@", response);
 }
 
 @end

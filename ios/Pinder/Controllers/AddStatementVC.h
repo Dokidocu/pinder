@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkManager.h"
 
-@interface AddStatementVC : UIViewController<UITextViewDelegate>
+@interface AddStatementVC : UIViewController<UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, NetworkManagerProtocol>{
+    NSArray *themes;
+    NSArray *choices;
+    BOOL isDisplayingThemes;
+    int indexThemes;
+    int indexChoices;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTheme;
 @property (weak, nonatomic) IBOutlet UILabel *lblPosition;

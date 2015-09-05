@@ -12,9 +12,10 @@
 #import "NetworkManager.h"
 #import "AddStatementVC.h"
 
-@interface PollVC : UIViewController<ZLSwipeableViewDataSource, ZLSwipeableViewDelegate>{
+@interface PollVC : UIViewController<ZLSwipeableViewDataSource, ZLSwipeableViewDelegate, NetworkManagerProtocol>{
     NSArray *pollQuestions;
     NSUInteger pollQuestionsIndex;
+    int currentIndex;
 }
 
 @property (weak, nonatomic) IBOutlet ZLSwipeableView *swipeableView;

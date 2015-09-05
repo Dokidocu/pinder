@@ -29,6 +29,12 @@ NSInteger const pickerHeightConstraintInvisible = -300;
     [_lblTheme addGestureRecognizer:tapTheme];
     [_lblPosition addGestureRecognizer:tapPosition];
     //
+    themes = [[NetworkManager sharedNetworkManager] getThemes];
+    choices = [NSArray arrayWithObjects:@"I agree", @"I disagree", @"I am unsure", nil];
+    //
+    isDisplayingThemes = NO;
+    indexThemes = -1;
+    indexChoices = -1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +48,9 @@ NSInteger const pickerHeightConstraintInvisible = -300;
 
 #pragma mark - Private methods
 -(void)focusTheme{
-    NSLog(@"focusTheme");
+    //NSLog(@"focusTheme");
+    isDisplayingThemes = YES;
+    [_pickerView reloadAllComponents];
     [_txtViewStatement resignFirstResponder];
     _layoutConstraintPickerBottom.constant = pickerHeightConstraintVisible;
     [UIView animateWithDuration:0.2 animations:^{
@@ -51,12 +59,45 @@ NSInteger const pickerHeightConstraintInvisible = -300;
 }
 
 -(void)focusPosition{
-    NSLog(@"focusPosition");
+    //NSLog(@"focusPosition");
+    isDisplayingThemes = NO;
+    [_pickerView reloadAllComponents];
     [_txtViewStatement resignFirstResponder];
     _layoutConstraintPickerBottom.constant = pickerHeightConstraintVisible;
     [UIView animateWithDuration:0.2 animations:^{
         [_pickerView layoutIfNeeded];
     }];
+}
+
+#pragma mark - UIPickerViewDataSource, UIPickerViewDelegate
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    if (isDisplayingThemes) {
+        return [themes count];
+    }
+    return [choices count];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if (isDisplayingThemes) {
+        NSDictionary *theme = [themes objectAtIndex:row];
+        return [theme objectForKey:@"name"];
+    }
+    return [choices objectAtIndex:row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if (isDisplayingThemes) {
+        NSDictionary *theme = [themes objectAtIndex:row];
+        [_lblTheme setText:[theme objectForKey:@"name"]];
+        indexThemes = (int)row;
+    }else{
+        [_lblPosition setText:[choices objectAtIndex:row]];
+        indexChoices = (int)row;
+    }
 }
 
 
@@ -71,7 +112,7 @@ NSInteger const pickerHeightConstraintInvisible = -300;
 }
 
 -(void)textViewDidChange:(UITextView *)textView{
-    if ([[textView text] length] > 0) {
+    if ([[textView text] length] > 0 && indexChoices >= 0 && indexThemes >= 0) {
         [_btnPost setUserInteractionEnabled:YES];
         [_btnPost setEnabled:YES];
         [_btnPost setAlpha:1.0];
@@ -99,10 +140,34 @@ NSInteger const pickerHeightConstraintInvisible = -300;
     return YES;
 }
 
+#pragma mark - NetworkManagerProtocol
+-(void)didRetrieveResponse:(id)response forRequest:(int)request{
+    //NSLog(@"sendQuestion : %@", response);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)didFailRetrievingResponse:(NSString *)response forRequest:(int)request{
+    //NSLog(@"failed : %@", response);
+}
+
 #pragma mark - Actions
 - (IBAction)postAction:(id)sender {
+    NSMutableDictionary *question = [[NSMutableDictionary alloc]init];
+    [question setObject:[_txtViewStatement text] forKey:@"text"];
+    [question setObject:[[themes objectAtIndex:indexThemes] objectForKey:@"id"] forKey:@"theme"];
+    NSString *answer;
+    if (indexChoices == 0) {
+        answer = @"YES";
+    }else if (indexChoices == 1){
+        answer = @"NO";
+    }else{
+        answer = @"NONE";
+    }
+    [question setObject:answer forKey:@"answer"];
+    [[NetworkManager sharedNetworkManager]sendQuestion:question forDelegate:self];
 }
 
 - (IBAction)cancelAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
