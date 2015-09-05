@@ -17,6 +17,7 @@ import codecs
 from openpyxl import Workbook, load_workbook
 import importlib
 import hashlib
+import datetime
 
 class Question(object):
     pass
@@ -25,7 +26,7 @@ class Question(object):
 class Tag(object):
     pass
 
-engine = create_engine('mysql://root:vhw89evhc7e8cby9e-f4&g3@188.166.45.118/pinder')
+engine = create_engine('mysql://root:root@localhost/pinder')
 metadata = MetaData()
 clear_mappers()
 db_tags = Table('tags', metadata, autoload=True, autoload_with=engine)
@@ -35,40 +36,46 @@ db_questions = Table('questions', metadata, autoload=True, autoload_with=engine)
 mapper(Question, db_questions)
 
 Session = sessionmaker(bind=engine)
-self.session = Session()
+my_session = Session()
 
 print 'test'
 
-	def add_location(self, location, opening_hours=None):
-		location.brand_id = self.id
-		location.checksum = self.get_location_checksum(location)
-		location.created_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-		location.updated_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-		location.source_timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+import csv
+with open('tweets.csv', 'rb') as csvfile:
+	reader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
-		exsiting = self.session.query(Location).filter_by(checksum=location.checksum).first()
+	last_id = 0
+	current_id = 0
+	change = 1
 
-		if exsiting:
-			location = exsiting
-		else:
-			self.session.add(location)
-			self.session.commit()
+	for row in reader:
+		print row[0]
+		print row[1]
+		print row[2]
+		print row[3]
 
+		my_question = Question()
 
-			if opening_hours:
-				opening_hours.location_id = location.id
-				opening_hours.checksum = self.get_opening_hours_checksum(opening_hours)
-				opening_hours.created_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-				opening_hours.updated_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-				self.session.add(opening_hours)
-				self.session.commit()
+		current_id = int(row[0])
+		new_id = current_id
 
-		return location.id
+		if current_id < last_id:
+			new_id = current_id + (change * 100)
+			change = change + 1
+		elif change > 1:
+			new_id = current_id + (change * 100)
 
-	def get_location_checksum(self, location):
-		string = unicode(location.brand_id) + unicode(location.housenumber) + unicode(location.city) + unicode(location.postcode) + unicode(location.street)
-		return hashlib.sha224(string.encode('utf-8')).hexdigest()
+		last_id = current_id
+	
+		my_question.id = new_id
+		my_question.title = '' 
+		my_question.link = '' 
+		my_question.text = row[3]
+		my_question.source = 'twitter'
+		my_question.author = row[1]
+		my_question.created_at = row[2]
+		my_question.updated_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+	
+		my_session.add(my_question)
+		my_session.commit()
 
-	def get_opening_hours_checksum(self, opening_hours):
-		string = unicode(opening_hours.location_id) + unicode(opening_hours.monday) + unicode(opening_hours.tuesday) + unicode(opening_hours.wednesday) + unicode(opening_hours.thursday) + unicode(opening_hours.friday) + unicode(opening_hours.saturday) + unicode(opening_hours.sunday) + unicode(opening_hours.holiday) 
-		return hashlib.sha224(string.encode('utf-8')).hexdigest()

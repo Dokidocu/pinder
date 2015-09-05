@@ -67,7 +67,7 @@ class QuestionController extends Controller
     private function addQuestion()
     {
         $user = JWTAuth::parseToken()->toUser();
-        $data = Input::only('text');
+        $data = Input::only('text', 'theme', 'answer');
         $validator = Validator::make(
             $data, [
                 'text' => 'string|required',
@@ -87,8 +87,20 @@ class QuestionController extends Controller
             'author' => $user->id,
         ]);
 
-        $myTheme = Theme::find(integerValue($data['theme']));
-        $question->themes()->attach($myTheme->id);
+        if (Input::has('theme'))
+        {
+            $myTheme = Theme::find(integerValue($data['theme']));
+            $question->themes()->attach($myTheme->id);
+        }
+
+        if (Input::has('answer'))
+        {
+            $answer = Answer::create([
+                'answer' => $data['answer'],
+                'user_id' => $user->id,
+                'question_id' => $question->id,
+            ]);
+        }
 
         return response()->json(['result'=>$question], 200);
     }

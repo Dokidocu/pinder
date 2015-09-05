@@ -46,6 +46,32 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
+        if ($request->ajax())
+        {
+            if($e instanceof ModelNotFoundException)
+            {
+                return response()->json(['error'=>'resource_does_not_exist'], 400);
+            }
+            else if($e instanceof QueryException)
+            {
+                if($e->errorInfo[0] === '23000')
+                {
+                    //print $e->getMessage();
+                    //print_r($e->errorInfo);
+                    return response()->json(['error'=>"duplicate_entry"], 409, [], $options=JSON_PRETTY_PRINT);
+                }
+                else
+                {
+                    //print_r($e->errorInfo);
+                    return response()->json(['error'=>'query_exception'], 400);
+                }
+            }
+            else if($e instanceof Exception)
+            {
+                return response()->json(['error'=>$e->getMessage()], 400);
+            }
+        }
+
         return parent::render($request, $e);
     }
 }

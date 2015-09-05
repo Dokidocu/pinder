@@ -36,7 +36,6 @@ class TokenAuthController extends Controller {
     public function signup()
     {
         //$nextYear = time() + (7 * 24 * 60 * 60 * 52);
-        echo 'test';
 
         //$customClaims = ['exp' => $nextYear];
         $credentials = Input::only('email', 'password');

@@ -20,9 +20,9 @@ parameters: '''email''' and '''password'''
 
 '''GET v0/question/new''' new questions
 
-'''GET v0/question/id''' details for the question
+'''GET v0/question/{id}''' details for the question
 
-'''POST v0/question/id''' send response for question
+'''POST v0/question/{id}''' send response for question
 parameters: '''answer''' : string
 
 '''POST v0/question'''  send new question
